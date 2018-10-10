@@ -1,5 +1,5 @@
-var editingBook = false;
-var editingBookId; // Empty for now
+let editingBook = false;
+let editingBookId; // Empty for now
 
 $(document).ready(function(){
   console.log('jQuery sourced.');
@@ -12,7 +12,7 @@ function addClickHandlers() {
   // Function called when the submit button is clicked
   $('#submitBtn').on('click', function(){
     console.log('Submit button clicked.');
-    var book = {};
+    let book = {};
     book.author = $('#author').val();
     book.title = $('#title').val();
 
@@ -27,7 +27,7 @@ function addClickHandlers() {
   // Function called when delete button is clicked
   $('#bookShelf').on('click', '.deleteBtn', function(){
     // We attached the bookid as data on our button
-    var bookId = $(this).data('bookid');
+    let bookId = $(this).data('bookid');
     console.log($(this));
     console.log('Delete book with id of', bookId);
     deleteBook(bookId);
@@ -40,7 +40,7 @@ function addClickHandlers() {
     // We attached the entire book object as data to our table row
     // $(this).parent() is the <td>
     // $(this).parent().parent() is the <tr> that we attached our data to
-    var selectedBook = $(this).parent().parent().data('book');
+    let selectedBook = $(this).parent().parent().data('book');
     console.log(selectedBook);
     editingBookId = selectedBook.id;
 
@@ -56,22 +56,24 @@ function addBook(bookToAdd) {
     type: 'POST',
     url: '/books',
     data: bookToAdd,
-    success: function(response) {
+    }).then(function(response) {
       console.log('Response from server.');
       refreshBooks();
-    }
-  });
+    }).catch(function(error) {
+      console.log('Error in POST', error)
+    });
 }
 
 // READ a.k.a. GET a.k.a. SELECT
 function refreshBooks() {
   $.ajax({
     type: 'GET',
-    url: '/books',
-    success: function(response) {
-      console.log(response);
-      appendToDom(response.books);
-    }
+    url: '/books'
+  }).then(function(response) {
+    console.log(response);
+    appendToDom(response.books);
+  }).catch(function(error){
+    console.log('error in GET', error);
   });
 }
 
@@ -95,16 +97,16 @@ function deleteBook(bookId) {
 function appendToDom(books) {
   // Remove books that currently exist in the table
   $('#bookShelf').empty();
-  for(var i = 0; i < books.length; i += 1) {
-    var book = books[i];
+  for(let i = 0; i < books.length; i += 1) {
+    let book = books[i];
     // For each book, append a new row to our table
-    $tr = $('<tr></tr>');
+    let $tr = $('<tr></tr>');
     $tr.data('book', book);
-    $tr.append('<td>' + book.id + '</td>');
-    $tr.append('<td>' + book.title + '</td>');
-    $tr.append('<td>' + book.author + '</td>');
-    $tr.append('<td><button class="editBtn">Edit</button></td>');
-    $tr.append('<td><button class="deleteBtn" data-bookid="' + book.id + '">Delete</button></td>');
+    $tr.append(`<td>${book.id}</td>`);
+    $tr.append(`<td>${book.title}</td>`);
+    $tr.append(`<td>${book.author}</td>`);
+    $tr.append(`<td><button class="editBtn">Edit</button></td>`);
+    $tr.append(`<td><button class="deleteBtn" data-bookid="${book.id}">Delete</button></td>`);
     $('#bookShelf').append($tr);
   }
 }
