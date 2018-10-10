@@ -1,4 +1,4 @@
-# Full Stack with PG
+# Put and Delete
 
 ```
 ,________,         .------,          .------,         .------.
@@ -9,6 +9,8 @@
 |________|       |______|'         |______|'         `.______.'
  HTML/CSS          jQuery        Node / Express      PostgreSQL
 ```
+We've got a basic bookstore! We're ready to add a new feature required by our users -- the ability to update our books and delete them from our inventory.
+
 
 ## DATABASE SETUP
 
