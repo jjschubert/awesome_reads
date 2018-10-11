@@ -1,3 +1,4 @@
+// this is the flag of whether we're editing or not
 let editingBook = false;
 let editingBookId; // Empty for now
 
@@ -16,6 +17,9 @@ function addClickHandlers() {
     book.author = $('#author').val();
     book.title = $('#title').val();
 
+
+    // If we're editing, fire updateBook
+    //Otherwise, use the addBook function
     if(editingBook) {
       book.id = editingBookId;
       updateBook(book);
