@@ -12,20 +12,24 @@
 We've got a basic bookstore! We're ready to add a new feature required by our users -- the ability to update our books and delete them from our inventory.
 
 
-## DATABASE SETUP
+## Database Setup
 
-Full SQL for adding all the books can be found in the database.sql file. Load the file into Postico by clicking on **Load query...**, select all of the queries (cmd + a) and click **Execute Selection**. [SQL lecture notes for reference](https://github.com/PrimeAcademy/antares-syllabus/blob/master/lecture_notes/03-01_sql_intro.md).
+Full SQL for adding all the books can be found in the database.sql file. 
+
+- [ ] Create a database - check `book.js` for the name
+- [ ] Run Queries found in `database.sql` for your starting data
 
 ## Base Mode
 
-- [ ] DELETE & EDIT AJAX 
+- [ ] DELETE & PUT AJAX calls
 - [ ] Clear form on submit 
-- [ ] DELETE & EDIT SERVER SIDE 
+- [ ] DELETE & PUT SERVER SIDE 
+- [ ] Page should refresh with up to date data after a DELETE or PUT
 
 ## Stretch Goals
 
-- [ ] Add publisher & year -- you'll have to change a lot!
-- [ ] Improve the styling of the page
-- [ ] Add validation
+- [ ] Add publisher & year -- you'll have to change many things across the full stack!
+- [ ] Improve the styling of the page -- Bootstrap, CSS
+- [ ] Add validation to your form
 - [ ] Change the sort order
 
