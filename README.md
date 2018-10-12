@@ -29,7 +29,13 @@ Full SQL for adding all the books can be found in the database.sql file.
 ## Stretch Goals
 
 - [ ] Add publisher & year -- you'll have to change many things across the full stack!
-- [ ] Improve the styling of the page -- Bootstrap, CSS
+- [ ] Improve the styling of the page -- Bootstrap & CSS
+    - [ ] Center the header, table, on the page
+    - [ ] Give alternating rows difference in color
+    - [ ] Make the buttons more UX friendly -- Red for delete, etc. Bootstrap makes this easy!
+    - [ ] Give Labels to the input boxes
+    - [ ] Give the form its own area on the page -- make it distinct from the table
+    - [ ] Maeke the page responsive -- Bootstrap Containers will be helpful!
 - [ ] Add validation to your form
 - [ ] Change the sort order
 
