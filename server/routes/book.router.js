@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   let queryText = 'SELECT title, author FROM "books" ORDER BY "title";';
   pool.query(queryText).then(result => {
     // Sends back the results in an object
-    res.send({ books: result.rows });
+    res.send(result.rows);
   })
   .catch(error => {
     console.log('error getting books', error);
@@ -26,7 +26,7 @@ router.post('/',  (req, res) => {
                    VALUES ($1, $2);`;
   pool.query(queryText, [newBook.author, newBook.title])
     .then(result => {
-      res.send({ books: result.rows });
+      res.sendStatus(201);
     })
     .catch(error => {
       console.log(`Error adding new book`, error);
