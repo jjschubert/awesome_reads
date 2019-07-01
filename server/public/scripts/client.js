@@ -18,6 +18,7 @@ function handleSubmit() {
   addBook(book);
 }
 
+// adds a book to the database
 function addBook(bookToAdd) {
   $.ajax({
     type: 'POST',
@@ -32,21 +33,21 @@ function addBook(bookToAdd) {
     });
 }
 
-// READ a.k.a. GET a.k.a. SELECT
+// refreshBooks will get all books from the server and render to page
 function refreshBooks() {
   $.ajax({
     type: 'GET',
     url: '/books'
   }).then(function(response) {
     console.log(response);
-    renderBooks(response.books);
+    renderBooks(response);
   }).catch(function(error){
     console.log('error in GET', error);
   });
 }
 
 
-// Displays array of books to the DOM
+// Displays an array of books to the DOM
 function renderBooks(books) {
   $('#bookShelf').empty();
 
