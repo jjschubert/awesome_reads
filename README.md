@@ -51,13 +51,13 @@ When the submit button is clicked:
 
 ### Additional Features
 
-- [ ] Add the ability to store and show one or more of the following when marking a book as complete: the date completed, a rating, and comments.  You'll have to change many things across the full stack!
 - [ ] Add validation to the add book form
 - [ ] Add a way to change the order in which books are shown - sort by title vs sort by author
 - [ ] Improve the styling of the page -- Bootstrap & CSS
     - [ ] Improve the table layout. Give alternating rows a difference in color
     - [ ] Make the buttons more UX friendly -- Red for delete, etc. Green for save/submit. 
     - [ ] Make the page responsive -- Bootstrap Grid & Containers will be helpful!
+- [ ] Add the ability to store and show one or more of the following when marking a book as complete: the date completed, a rating, and comments.  You'll have to change many things across the full stack!
 
 
 
