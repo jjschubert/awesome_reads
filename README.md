@@ -24,6 +24,8 @@ Users also want to be able to mark a book as read. The database has already been
 
 Add another button to each book allowing the user to `Mark as Read`. Again, starter code is provided in the `book.router.js`. When a book has been read, the status should be changed to `Read`. 
 
+### Task list
+
 - [ ] DELETE & PUT AJAX calls
 - [ ] DELETE & PUT SERVER SIDE 
 - [ ] Page should refresh with up to date data after a DELETE or PUT
