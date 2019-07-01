@@ -1,41 +1,63 @@
-# Put and Delete
+# Awesome Reads
 
-```
-,________,         .------,          .------,         .------.
-|________|       ,'_____,'|        ,'_____,'|        (        )
-|        |       |      | |        | ____ | |        |~------~|
-|        |       |      | |        | ____ | |        |~------~|
-|        |       |      | ;        | ____ | ;        |~------~|
-|________|       |______|'         |______|'         `.______.'
- HTML/CSS          jQuery        Node / Express      PostgreSQL
-```
-We've got a basic bookstore! We're ready to add a new feature required by our users -- the ability to update our books and delete them from our inventory.
+Welcome to Awesome Reads! 
 
+We need your help adding some new features to our application. Our users want to be able to mark books as read and delete books they no longer want to read.
+
+Get started by taking a look at our existing code, and getting the current application up and running.
 
 ## Database Setup
 
-Full SQL for adding all the books can be found in the database.sql file. 
+You'll need to create a database called `awesome-reads`. 
 
-- [ ] Create a database - check `book.js` for the name
-- [ ] Run Queries found in `database.sql` for your starting data
+Use the provided `database.sql` file to create the `books` table and setup some test data.
 
 ## Base Mode
 
+### Remove a book
+
+Users want to be able to remove a book from the book list.  Add a `Delete` button for each book. There is starter code provided in the `book.router.js` file for the DELETE route. Update this to use the book id to remove it from the database.
+
+### Update a book
+
+Users also want to be able to mark a book as read. The database has already been setup with a status column, but this is not currently shown on the page. Update the book list display to show if a book has been read or not. 
+
+Add another button to each book allowing the user to `Mark as Read`. Again, starter code is provided in the `book.router.js`. When a book has been read, the status should be changed to `Read`. 
+
 - [ ] DELETE & PUT AJAX calls
-- [ ] Clear form on submit 
 - [ ] DELETE & PUT SERVER SIDE 
 - [ ] Page should refresh with up to date data after a DELETE or PUT
 
+
 ## Stretch Goals
 
-- [ ] Add publisher & year -- you'll have to change many things across the full stack!
+### Enhanced edit
+
+Currently, if you typo a book's title or author, it must be removed and re-added to fix it. Users want to have an edit feature to modify this information.
+
+To do this we should first create a variable to indicate if we are in add or edit mode.
+
+Then we can add an edit button for each book. When clicked:
+
+- Save the book id in a global variable
+- Switch the mode to edit
+- Fill the form with the current title and author of the book
+- Change the heading from Add Book to Edit Book
+- The edit mode should also show a cancel button, which should switch back to add mode, clearing the inputs without saving data.
+
+When the submit button is clicked:
+- If the mode is add - do the original POST
+- If the mode is edit - send a PUT with the updated information
+
+### Additional Features
+
+- [ ] Add the ability to store and show one or more of the following when marking a book as complete: the date completed, a rating, and comments.  You'll have to change many things across the full stack!
+- [ ] Add validation to the add book form
+- [ ] Add a way to change the order in which books are shown - sort by title vs sort by author
 - [ ] Improve the styling of the page -- Bootstrap & CSS
-    - [ ] Center the header, table, on the page
-    - [ ] Give alternating rows difference in color
-    - [ ] Make the buttons more UX friendly -- Red for delete, etc. Bootstrap makes this easy!
-    - [ ] Give Labels to the input boxes
-    - [ ] Give the form its own area on the page -- make it distinct from the table
-    - [ ] Maeke the page responsive -- Bootstrap Containers will be helpful!
-- [ ] Add validation to your form
-- [ ] Change the sort order
+    - [ ] Improve the table layout. Give alternating rows a difference in color
+    - [ ] Make the buttons more UX friendly -- Red for delete, etc. Green for save/submit. 
+    - [ ] Make the page responsive -- Bootstrap Grid & Containers will be helpful!
+
+
 

@@ -1,9 +1,8 @@
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
-const PORT = process.env.PORT || 5000;
-const booksRouter = require('./routes/book.js');
+const booksRouter = require('./routes/book.router.js');
 
+const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/books', booksRouter);
@@ -12,6 +11,7 @@ app.use('/books', booksRouter);
 app.use(express.static('server/public'))
 
 // Start listening for requests on a specific port
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log('listening on port', PORT);
 });
