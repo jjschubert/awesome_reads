@@ -1,51 +1,44 @@
--- SQL Required to get set up with the project
-
 CREATE TABLE books(
-	id SERIAL PRIMARY KEY,
-	title VARCHAR (1000) NOT NULL,
-	author VARCHAR (100) NOT NULL
+	"id" SERIAL PRIMARY KEY,
+	"title" VARCHAR (250) NOT NULL,
+	"author" VARCHAR (100) NOT NULL,
+	"published" DATE,
+  "status" VARCHAR (80) DEFAULT 'Want to Read'
 );
 
-INSERT INTO books (title, author) VALUES ('Rogue Lawyer', 'John Grisham');
-INSERT INTO books (title, author) VALUES ('The Girl on the Train', 'Paula Hawkins');
-INSERT INTO books (title, author) VALUES ('Scandalous Behavior', 'Stuart Woods');
-INSERT INTO books (title, author) VALUES ('Blue', 'Danielle Steel');
-INSERT INTO books (title, author) VALUES ('NYPD Red 4', 'James Patterson and Marshall Karp');
-INSERT INTO books (title, author) VALUES ('Brotherhood In Death', 'J. D. Robb');
-INSERT INTO books (title, author) VALUES ('Morning Star', 'Pierce Brown');
-INSERT INTO books (title, author) VALUES ('Cometh the hour', 'Jeffrey Archer');
-INSERT INTO books (title, author) VALUES ('Me Before You', 'Jojo Moyes');
-INSERT INTO books (title, author) VALUES ('The Gangster', 'Clive Cussler and Justin Scott');
-INSERT INTO books (title, author) VALUES ('Fire Touched', 'Patricia Briggs');
-INSERT INTO books (title, author) VALUES ('Private Paris', 'James Patterson and Mark Sullivan');
-INSERT INTO books (title, author) VALUES ('Fool me once', 'Harlan Coben');
-INSERT INTO books (title, author) VALUES ('One with you', 'Sylvia Day');
-INSERT INTO books (title, author) VALUES ('The Obsession', 'Nora Roberts');
-INSERT INTO books (title, author) VALUES ('The Last Mile', 'David Baldacci');
-INSERT INTO books (title, author) VALUES ('Extreme Prey', 'John Sandford');
-INSERT INTO books (title, author) VALUES ('15th Affair', 'James Patterson and Maxine Paetro');
-INSERT INTO books (title, author) VALUES ('Me Before You', 'Jojo Moyes');
-INSERT INTO books (title, author) VALUES ('End of Watch', 'Stephen King');
-INSERT INTO books (title, author) VALUES ('Bay of Sighs', 'Nora Roberts');
-INSERT INTO books (title, author) VALUES ('Me Before You', 'Jojo Moyes');
-INSERT INTO books (title, author) VALUES ('The Games', 'James Patterson and Mark Sullivan');
-INSERT INTO books (title, author) VALUES ('Me Before You', 'Jojo Moyes');
-INSERT INTO books (title, author) VALUES ('The Black Widow', 'Daniel Silva');
-INSERT INTO books (title, author) VALUES ('The Girl on the Train', 'Paula Hawkins');
-INSERT INTO books (title, author) VALUES ('Truly Madly Guilty', 'Liane Moriarty');
-INSERT INTO books (title, author) VALUES ('Bullseye', 'James Patterson and Michael Ledwidge');
-INSERT INTO books (title, author) VALUES ('Insidious', 'Catherine Coulter');
-INSERT INTO books (title, author) VALUES ('The Girl on the Train', 'Paula Hawkins');
-INSERT INTO books (title, author) VALUES ('A Great Reckoning', 'Louise Penny');
-INSERT INTO books (title, author) VALUES ('Apprentice in Death', 'J.D. Robb');
-INSERT INTO books (title, author) VALUES ('The Girl on the Train', 'Paula Hawkins');
-INSERT INTO books (title, author) VALUES ('Escape Clause', 'John Sandford');
-INSERT INTO books (title, author) VALUES ('The Whistler', 'John Grisham');
-INSERT INTO books (title, author) VALUES ('The Wrong Side of Goodbye', 'Michael Connelly');
-INSERT INTO books (title, author) VALUES ('Night School', 'Lee Child');
-INSERT INTO books (title, author) VALUES ('Turbo Twenty-three', 'Janet Evanovich');
-INSERT INTO books (title, author) VALUES ('Cross the Line', 'James Patterson');
-INSERT INTO books (title, author) VALUES ('The Whistler', 'John Grisham');
-INSERT INTO books (title, author) VALUES ('Island of Glass', 'Nora Roberts');
+INSERT INTO "books" ("title", "author", "published") VALUES ('Another Brooklyn', 'Jacqueline Woodson', '8-9-2016');
+INSERT INTO "books" ("title", "author", "published") VALUES ('The Girl on the Train', 'Paula Hawkins', '1-13-2015');
+INSERT INTO "books" ("title", "author", "published") VALUES ('Scandalous Behavior', 'Stuart Woods', '1-5-2016');
+INSERT INTO "books" ("title", "author", "published") VALUES ('Blue', 'Danielle Steel', '1-19-2016');
+INSERT INTO "books" ("title", "author", "published") VALUES ('Sour Heart', 'Jenny Zhang', '8-1-2017');
+INSERT INTO "books" ("title", "author", "published") VALUES ('Brotherhood In Death', 'J. D. Robb', NULL);
+INSERT INTO "books" ("title", "author", "published") VALUES ('Morning Star', 'Pierce Brown', NULL);
+INSERT INTO "books" ("title", "author", "published") VALUES ('Cometh the hour', 'Jeffrey Archer', NULL);
+INSERT INTO "books" ("title", "author", "published") VALUES ('Me Before You', 'Jojo Moyes', '1-5-2012');
+INSERT INTO "books" ("title", "author", "published") VALUES ('The Gangster', 'Clive Cussler and Justin Scott', '3-1-2016');
+INSERT INTO "books" ("title", "author", "published") VALUES ('Fire Touched', 'Patricia Briggs', '3-8-2016');
+INSERT INTO "books" ("title", "author", "published") VALUES ('Private Paris', 'James Patterson and Mark Sullivan', '3-14-2016');
+INSERT INTO "books" ("title", "author", "published") VALUES ('Fool me once', 'Harlan Coben', '3-22-2016');
+INSERT INTO "books" ("title", "author", "published") VALUES ('One with you', 'Sylvia Day', NULL);
+INSERT INTO "books" ("title", "author", "published") VALUES ('The Obsession', 'Nora Roberts', '4-12-2016');
+INSERT INTO "books" ("title", "author", "published") VALUES ('The Last Mile', 'David Baldacci', NULL);
+INSERT INTO "books" ("title", "author", "published") VALUES ('Extreme Prey', 'John Sandford', NULL);
+INSERT INTO "books" ("title", "author", "published") VALUES ('15th Affair', 'James Patterson and Maxine Paetro', NULL);
+INSERT INTO "books" ("title", "author", "published") VALUES ('End of Watch', 'Stephen King', '6-7-2016');
+INSERT INTO "books" ("title", "author", "published") VALUES ('The Kite Runner', 'Khaled Hosseini', '5-1-2004');
+INSERT INTO "books" ("title", "author", "published") VALUES ('The Games', 'James Patterson and Mark Sullivan', NULL);
+INSERT INTO "books" ("title", "author", "published") VALUES ('The Black Widow', 'Daniel Silva', NULL);
+INSERT INTO "books" ("title", "author", "published") VALUES ('The Stone Sky', 'N. K. Jemisin', '8-15-2017');
+INSERT INTO "books" ("title", "author", "published") VALUES ('Bullseye', 'James Patterson and Michael Ledwidge', NULL);
+INSERT INTO "books" ("title", "author", "published") VALUES ('Insidious', 'Catherine Coulter', NULL);
+INSERT INTO "books" ("title", "author", "published") VALUES ('A Great Reckoning', 'Louise Penny', NULL);
+INSERT INTO "books" ("title", "author", "published") VALUES ('What It Means When a Man Falls from the Sky', ' Lesley Nneka Arimah', '4-4-2017');
+INSERT INTO "books" ("title", "author", "published") VALUES ('The Girl Who Smiled Beads: A Story of War and What Comes After', 'Clemantine Wamariya', '4-24-2018');
+INSERT INTO "books" ("title", "author", "published") VALUES ('The Wrong Side of Goodbye', 'Michael Connelly', NULL);
+INSERT INTO "books" ("title", "author", "published") VALUES ('Night School', 'Lee Child', '11-7-2017');
+INSERT INTO "books" ("title", "author", "published") VALUES ('Turbo Twenty-three', 'Janet Evanovich', '11-15-2015');
+INSERT INTO "books" ("title", "author", "published") VALUES ('Cross the Line', 'James Patterson', NULL);
+INSERT INTO "books" ("title", "author", "published") VALUES ('The Whistler', 'John Grisham', '11-25-2016');
+INSERT INTO "books" ("title", "author", "published") VALUES ('Island of Glass', 'Nora Roberts', '12-6-2016');
 
-SELECT * FROM books;
+SELECT * FROM "books";
