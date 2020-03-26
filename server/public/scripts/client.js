@@ -77,6 +77,19 @@ function handleDelete() {
   console.log('book id: ', bookId);
 
   // tell server to delete this specific book
-  
+  // route: /books/18
+  $.ajax({
+    method: 'DELETE',
+    // url: '/books/' + bookId,
+    url: `/books/${bookId}`,
+  })
+  .then(function(response) {
+    console.log('Response from server.', response);
+    refreshBooks(); // go get all the books, again
+  })
+  .catch(function(error) {
+    console.log('Error in DELETE', error)
+    alert('Unable to remove book at this time. Please try again later.');
+  });
 
 }
