@@ -8,7 +8,6 @@ router.get('/', (req, res) => {
   let queryText = 'SELECT * FROM "books" ORDER BY "title";';
   pool.query(queryText).then(result => {
     // Sends back the results in an object
-    console.log(result);
     res.send(result.rows);
   })
   .catch(error => {
@@ -57,19 +56,8 @@ router.delete('/:id',  (req, res) => {
   let id = req.params.id; // id of the thing to delete
   console.log('Delete route called with id of', id);
 
-  // delete query
-  let queryText = `DELETE FROM "books" WHERE "id" = $1;`;
-  
-  // substitute $s for values
-  pool.query(queryText, [id])
-    .then(result => {
-      res.sendStatus(201);
-    })
-    .catch(error => {
-      console.log(`Error adding new book`, error);
-      res.sendStatus(500);
-    });
-
+  // TODO - REPLACE BELOW WITH YOUR CODE
+  res.sendStatus(500);
 
 });
 
