@@ -44,13 +44,27 @@ router.put('/:id', (req, res) => {
 
   console.log(`Updating book ${id} with `, book);
 
-  // TODO - REPLACE BELOW WITH YOUR CODE
-  let queryText =
-    `UPDATE "books"
-  SET "status" = 'read'
-  WHERE "id" = $1;
-  `
+  if (book.editStatus === 'toEdit') {
 
+    let queryText =
+      `UPDATE "books"
+    SET "author" = $2, "title" = $3
+    WHERE "id" = $1;
+   `
+   pool.query(queryText, [id, book.author, book.title]).then((result) => {
+    res.sendStatus(200);
+  }).catch((error) => { // in case of broken
+    console.log('error in PUT', error);
+    //all good servers respond
+    res.sendStatus(500);
+  })
+  } else {
+    // TODO - REPLACE BELOW WITH YOUR CODE
+    let queryText =
+      `UPDATE "books"
+    SET "status" = 'read'
+    WHERE "id" = $1;
+    `
   pool.query(queryText, [id]).then((result) => {
     res.sendStatus(200);
   }).catch((error) => { // in case of broken
@@ -58,6 +72,7 @@ router.put('/:id', (req, res) => {
     //all good servers respond
     res.sendStatus(500);
   })
+}
 });
 
 // TODO - DELETE 

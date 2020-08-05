@@ -4,10 +4,39 @@ $(document).ready(function(){
   addClickHandlers();
 });
 
+let editStatus = '';
+let bookToEdit = '';
+
 function addClickHandlers() {
   $('#submitBtn').on('click', handleSubmit);
-  $('#bookShelf').on('click', '.deleteBtn', deleteBook)
-  $('#bookShelf').on('click', '.markReadBtn', updateBookStatus)
+  $('#bookShelf').on('click', '.deleteBtn', deleteBook);
+  $('#bookShelf').on('click', '.markReadBtn', updateBookStatus);
+  $('#bookShelf').on('click', '.editBtn', editBook);
+  $('#forCancelBtn').on('click', '#cancelBtn', cancelEdit);
+}
+
+function cancelEdit() {
+  $('#forCancelBtn').text(''); 
+  $('input').empty();
+  //turn title back to add book
+  $('#pageTitle').text('Add Book');
+  let editStatus = false;
+}
+
+function editBook() {
+  console.log('in editBook');
+  editStatus = true;
+  //add cancel button
+  $('#forCancelBtn').append(`
+  <button id='cancelBtn'>Cancel<button>`);
+  $('#pageTitle').text('Edit Book');
+
+  //fill inputs for editing
+  bookToEdit = $(this).closest('tr').data('book');
+  console.log(bookToEdit);
+  $("#title").val(bookToEdit.title);
+  $("#author").val(bookToEdit.author);
+  bookToEdit.editStatus = 'toEdit';
 }
 
 function updateBookStatus() {
@@ -43,12 +72,32 @@ function deleteBook() {
   })
 };
 
+let book = {};
+
 function handleSubmit() {
   console.log('Submit button clicked.');
-  let book = {};
   book.author = $('#author').val();
   book.title = $('#title').val();
+  if (editStatus === false) {
   addBook(book);
+} else if (editStatus === true) {
+  book.editStatus = 'toEdit';
+  submitEditedBook(book);
+}
+}
+
+function submitEditedBook() {
+  console.log('in submitEditedBook');
+  console.log(bookToEdit.id);
+  $.ajax({
+    method: 'PUT',
+    url: `books/${bookToEdit.id}`,
+    data: book
+  }).then(function() {
+    refreshBooks();
+}).catch(function(error){
+  console.log('Error in submitEditedBook', error);
+})
 }
 
 // adds a book to the database
@@ -93,6 +142,7 @@ function renderBooks(books) {
     $tr.append(`<td>${book.author}</td>`);
     $tr.append(`<td>${book.status}</td>`);
     $tr.append(`<td><button class="markReadBtn">Mark as Read</button></td>`);
+    $tr.append(`<td><button class="editBtn">Edit</button></td>`)
     $tr.append(`<td><button class="deleteBtn">Delete</button></td>`);
     $('#bookShelf').append($tr);
   }
