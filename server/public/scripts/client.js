@@ -110,6 +110,7 @@ function addBook(bookToAdd) {
   }).then(function (response) {
     console.log('Response from server.', response);
     refreshBooks();
+    $('input').val('');
   }).catch(function (error) {
     console.log('Error in POST', error)
     alert('Unable to add book at this time. Please try again later.');
