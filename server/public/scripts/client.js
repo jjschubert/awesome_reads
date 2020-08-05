@@ -7,8 +7,27 @@ $(document).ready(function(){
 function addClickHandlers() {
   $('#submitBtn').on('click', handleSubmit);
   $('#bookShelf').on('click', '.deleteBtn', deleteBook)
-  // TODO - Add code for edit & delete buttons
+  $('#bookShelf').on('click', '.markReadBtn', updateBookStatus)
 }
+
+function updateBookStatus() {
+  console.log('in status clicker');
+  let idToUpdate = $(this).closest('tr').data('book-id');
+  let status = {
+    status: 'read';
+  };
+  
+  $.ajax({
+    method: 'PUT',
+    url: `/books/${idToUpdate}`,
+    data: status
+  }).then(function () {
+    refreshBooks();
+  }).catch(function(error){
+    console.log(error);
+  });
+}
+
 
 function deleteBook() {
   console.log('delete clicker');
@@ -22,7 +41,7 @@ function deleteBook() {
   }).catch(function(error) {
     console.log(error);
   })
-}''
+};
 
 function handleSubmit() {
   console.log('Submit button clicked.');
@@ -72,6 +91,8 @@ function renderBooks(books) {
     $tr.data('book', book);
     $tr.append(`<td>${book.title}</td>`);
     $tr.append(`<td>${book.author}</td>`);
+    $tr.append(`<td>${book.status}</td>`);
+    $tr.append(`<td><button class="markReadBtn">Mark as Read</button></td>`);
     $tr.append(`<td><button class="deleteBtn">Delete</button></td>`);
     $('#bookShelf').append($tr);
   }
