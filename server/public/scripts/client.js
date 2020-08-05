@@ -14,9 +14,9 @@ function updateBookStatus() {
   console.log('in status clicker');
   let idToUpdate = $(this).closest('tr').data('book-id');
   let status = {
-    status: 'read';
+    status: 'read',
   };
-  
+
   $.ajax({
     method: 'PUT',
     url: `/books/${idToUpdate}`,

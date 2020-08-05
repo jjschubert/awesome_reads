@@ -10,15 +10,15 @@ router.get('/', (req, res) => {
     // Sends back the results in an object
     res.send(result.rows);
   })
-  .catch(error => {
-    console.log('error getting books', error);
-    res.sendStatus(500);
-  });
+    .catch(error => {
+      console.log('error getting books', error);
+      res.sendStatus(500);
+    });
 });
 
 // Adds a new book to the list of awesome reads
 // Request body must be a book object with a title and author.
-router.post('/',  (req, res) => {
+router.post('/', (req, res) => {
   let newBook = req.body;
   console.log(`Adding book`, newBook);
 
@@ -38,21 +38,32 @@ router.post('/',  (req, res) => {
 // Updates a book to show that it has been read
 // Request must include a parameter indicating what book to update - the id
 // Request body must include the content to update - the status
-router.put('/:id',  (req, res) => {
+router.put('/:id', (req, res) => {
   let book = req.body; // Book with updated content
   let id = req.params.id; // id of the book to update
 
   console.log(`Updating book ${id} with `, book);
 
   // TODO - REPLACE BELOW WITH YOUR CODE
-  res.sendStatus(500);
+  let queryText =
+    `UPDATE "books"
+  SET "status" = 'read'
+  WHERE "id" = $1;
+  `
 
+  pool.query(queryText, [id]).then((result) => {
+    res.sendStatus(200);
+  }).catch((error) => { // in case of broken
+    console.log('error in PUT', error);
+    //all good servers respond
+    res.sendStatus(500);
+  })
 });
 
 // TODO - DELETE 
 // Removes a book to show that it has been read
 // Request must include a parameter indicating what book to update - the id
-router.delete('/:id',  (req, res) => {
+router.delete('/:id', (req, res) => {
   let id = req.params.id; // id of the thing to delete
   console.log('Delete route called with id of', id);
 
@@ -61,12 +72,12 @@ router.delete('/:id',  (req, res) => {
     DELETE FROM "books"
     WHERE "id" =  $1;`
 
-    pool.query(queryText, [id]).then((result) => {
-      res.sendStatus(204);
+  pool.query(queryText, [id]).then((result) => {
+    res.sendStatus(204);
   }).catch((error) => { // in case of broken
-      console.log('error in DELETE', error);
-      //all good servers respond
-      res.sendStatus(500);
+    console.log('error in DELETE', error);
+    //all good servers respond
+    res.sendStatus(500);
   })
 });
 
