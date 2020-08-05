@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const booksRouter = require('./routes/book.router.js');
+const editRouter = require('./routes/edit.router.js');
 
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/books', booksRouter);
+app.use('/edit', editRouter);
 
 // Serve back static files by default
 app.use(express.static('server/public'))
