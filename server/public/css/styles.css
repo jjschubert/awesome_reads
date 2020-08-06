@@ -28,4 +28,21 @@ th {
   text-align: left;
 }
 
+#bookList {
+  display: inline-block;
+}
+
+#authorSortBtn {
+  display: inline-block;
+  margin-left: 1em;
+}
+
+#titleSortBtn {
+  display: inline-block;
+  margin-left: 1em;
+}
+
+#submitBtn {
+  margin-top: 1em;
+}
 

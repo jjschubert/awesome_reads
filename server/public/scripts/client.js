@@ -48,7 +48,7 @@ function editBook() {
   editStatus = true;
   //add cancel button
   $('#forCancelBtn').append(`
-  <button id='cancelBtn'>Cancel<button>`);
+  <button class="btn btn-outline-danger" id='cancelBtn'>Cancel<button>`);
   $('#pageTitle').text('Edit Book');
 
   //fill inputs for editing
@@ -167,9 +167,9 @@ function renderBooks(books) {
     $tr.append(`<td>${book.title}</td>`);
     $tr.append(`<td>${book.author}</td>`);
     $tr.append(`<td>${book.status}</td>`);
-    $tr.append(`<td><button class="markReadBtn">Mark as Read</button></td>`);
-    $tr.append(`<td><button class="editBtn">Edit</button></td>`)
-    $tr.append(`<td><button class="deleteBtn">Delete</button></td>`);
+    $tr.append(`<td><button class="btn btn-outline-dark btn-sm markReadBtn">Mark as Read</button></td>`);
+    $tr.append(`<td><button class="btn btn-outline-dark btn-sm editBtn">Edit</button></td>`)
+    $tr.append(`<td><button class="btn btn-outline-dark btn-sm deleteBtn">Delete</button></td>`);
     $('#bookShelf').append($tr);
   }
 }

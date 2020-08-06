@@ -6,6 +6,7 @@
   <title>Awesome Reads</title>
   <script type="text/javascript" src="vendors/jquery.js"></script>
   <script type="text/javascript" src="scripts/client.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -20,15 +21,15 @@
       <br />
       <label>Author:</label><input type="text" name="" value="" id="author" size="50" required>
       <br />
-      <button type="button" id="submitBtn">Submit</button>
+      <button class="btn btn-primary" type="button" id="submitBtn">Submit</button>
       <div id="forCancelBtn"></div>
     </section>
     <section>
       <div>
-        <h3>Book List</h3>
-        <button id="titleSortBtn">Sort by Title</button>
-        <button id="authorSortBtn">Sort by Author</button>
-        <table>
+        <h3 id='bookList'>Book List <span></span>    </h3>
+        <button class="btn btn-secondary btn-sm" id="titleSortBtn">Sort by Title</button>
+        <button class="btn btn-secondary btn-sm" id="authorSortBtn">Sort by Author</button>
+        <table class="table table-striped">
           <thead>
             <tr>
               <th>Title</th>
