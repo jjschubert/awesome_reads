@@ -37,7 +37,7 @@ function titleSort() {
 
 function cancelEdit() {
   $('#forCancelBtn').text('');
-  $('input').empty();
+  $('input').val('');
   //turn title back to add book
   $('#pageTitle').text('Add Book');
   let editStatus = false;
@@ -48,7 +48,7 @@ function editBook() {
   editStatus = true;
   //add cancel button
   $('#forCancelBtn').append(`
-  <button class="btn btn-outline-danger" id='cancelBtn'>Cancel<button>`);
+  <button class="btn btn-secondary" id='cancelBtn'>Cancel<button>`);
   $('#pageTitle').text('Edit Book');
 
   //fill inputs for editing

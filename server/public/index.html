@@ -11,22 +11,24 @@
 </head>
 
 <body>
-  <header>
-    <h1>Awesome Reads</h1>
-  </header>
   <main>
-    <section>
-      <h3 id="pageTitle">Add New Book</h3>
-      <label>Title:</label><input type="text" name="" value="" id="title" size="50" required>
-      <br />
-      <label>Author:</label><input type="text" name="" value="" id="author" size="50" required>
-      <br />
-      <button class="btn btn-primary" type="button" id="submitBtn">Submit</button>
-      <div id="forCancelBtn"></div>
+    <div id="bookTop">
+      <h1>Awesome Reads</h1>
+      <div id="bookTopText">
+        <h3 id="pageTitle">Add New Book</h3>
+        <label>Title:</label><input type="text" name="" value="" id="title" size="50" required>
+        <br />
+        <label>Author:</label><input type="text" name="" value="" id="author" size="50" required>
+        <br />
+        <button class="btn btn-primary" type="button" id="submitBtn">Submit</button>
+        <div id="forCancelBtn"></div>
+      </div>
+    </div>
+
     </section>
-    <section>
+    <section id="tableZone"> 
       <div>
-        <h3 id='bookList'>Book List <span></span>    </h3>
+        <h3 id='bookList'>Book List</h3>
         <button class="btn btn-secondary btn-sm" id="titleSortBtn">Sort by Title</button>
         <button class="btn btn-secondary btn-sm" id="authorSortBtn">Sort by Author</button>
         <table class="table table-striped">

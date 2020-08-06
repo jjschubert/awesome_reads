@@ -3,23 +3,15 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-header {
-  background-color: brown;
-  padding: 1em;
-  margin-bottom: 1em;
-}
-
 h1 {
   margin: 0;
-}
-
-main {
-  width: 90%;
-  margin: auto;
+  padding-left: 1em;
+  padding-top: 1em;
+  font-weight: bold;
+  color: navy;
 }
 
 section {
-  background-color: linen;
   padding: .5em;
   margin-bottom: 1em;
 }
@@ -30,6 +22,7 @@ th {
 
 #bookList {
   display: inline-block;
+  margin-bottom: 1em;
 }
 
 #authorSortBtn {
@@ -44,5 +37,28 @@ th {
 
 #submitBtn {
   margin-top: 1em;
+  display: inline-block;
 }
 
+#bookTop {
+  background-image: url('book_banner.jpg');
+  background-size: cover;
+}
+
+#bookTopText {
+  margin-left: 2em;
+  padding: 2em 0;
+  margin-top: 0;
+}
+
+#tableZone {
+  margin: 2em 3em;
+}
+
+#pageTitle {
+  margin-left: 2em;
+}
+
+#cancelBtn {
+  display: inline-block;
+}
