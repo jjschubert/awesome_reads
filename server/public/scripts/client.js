@@ -13,6 +13,26 @@ function addClickHandlers() {
   $('#bookShelf').on('click', '.markReadBtn', updateBookStatus);
   $('#bookShelf').on('click', '.editBtn', editBook);
   $('#forCancelBtn').on('click', '#cancelBtn', cancelEdit);
+  $('#titleSortBtn').on('click', titleSort);
+  $('#authorSortBtn').on('click', authorSort);
+}
+
+function authorSort() {
+  $.ajax({
+    type: 'GET',
+    url: '/books/author'
+  }).then(function (response) {
+    console.log(response);
+    renderBooks(response);
+  }).catch(function (error) {
+    console.log('error in author GET', error);
+  });
+}
+
+function titleSort() {
+  console.log('in title sort');
+  refreshBooks();
+  
 }
 
 function cancelEdit() {
